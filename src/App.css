@@ -1,6 +1,19 @@
 * {
   font-family: sans-serif;
 }
+
+.App{
+  display: grid;
+  grid-template-rows: auto 1fr; /* Two rows: one for h1 and one for form */
+  justify-content: center;
+  align-items: center;
+  margin-top: 200px;
+}
+
+.App h1{
+  margin-bottom: 10px;
+}
+
 input,
 button {
   font-size: 20px;
@@ -20,4 +33,27 @@ button:nth-last-child(2),
 button:nth-last-child(1) {
   background: tomato;
   color: white;
+}
+
+@media (max-width: 600px) {
+  /* Styles for screens smaller than 600px wide */
+  .App {
+    margin-top: 100px; /* Decrease top margin to make room for content */
+    grid-template-rows: auto auto 1fr; /* Add an extra row for spacing */
+    grid-template-areas: 
+      "header"
+      "title"
+      "form"; /* Define grid areas for header, title, and form */
+      margin-left: 35px;
+  }
+  
+  .App h1 {
+    grid-area: title; /* Position the title in the "title" grid area */
+  }
+
+  .App form {
+    grid-area: form; /* Position the form in the "form" grid area */
+  }
+
+
 }
